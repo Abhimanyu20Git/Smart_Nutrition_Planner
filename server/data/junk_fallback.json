@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "0slgfngfl",
+    "name": "Burger",
+    "calories": 250,
+    "protein": 12,
+    "cost": 60
+  },
+  {
+    "_id": "mh0m15xgi",
+    "name": "Samosa",
+    "calories": 200,
+    "protein": 3,
+    "cost": 20
+  },
+  {
+    "_id": "9j3ca10h1",
+    "name": "Pizza Slice",
+    "calories": 300,
+    "protein": 10,
+    "cost": 100
+  },
+  {
+    "_id": "6n5xl0uls",
+    "name": "Soft Drink",
+    "calories": 150,
+    "protein": 0,
+    "cost": 40
+  }
+]

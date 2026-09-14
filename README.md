@@ -1,4 +1,4 @@
-# 🥗 Smart Budget Nutrition Planner
+# 🥗 Smart Nutrition Planner
 
 > **An intelligent, constraint-based dietary optimizer that crafts delicious, cost-effective Indian meal plans tailored to your exact caloric & macronutrient targets — with zero digestive overload.**
 
@@ -11,7 +11,7 @@
 
 ## 📌 Overview
 
-**Smart Budget Nutrition Planner** is designed for real people with real budgets. Traditional fitness apps either recommend expensive exotic ingredients or force excessive protein intake that leads to digestive distress. 
+**Smart Nutrition Planner** is designed for real people with real budgets. Traditional fitness apps either recommend expensive exotic ingredients or force excessive protein intake that leads to digestive distress. 
 
 This platform solves both challenges by combining **nutritional science (ICMR & ISSN guidelines)** with a **multi-pass greedy optimization engine** that:
 1. **Respects Indian Food Habits**: Built around staples like Dals, Sattu, Soya Chunks, Paneer, Rotis, Rice, Milk, Eggs, and Chicken.

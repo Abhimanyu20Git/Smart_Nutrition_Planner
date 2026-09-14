@@ -62,7 +62,7 @@ export default function App() {
 
       {/* Main Title Header */}
       <header>
-        <h1>Smart Budget <span className="accent">Nutrition</span> Planner</h1>
+        <h1>Smart <span className="accent">Nutrition</span> Planner</h1>
         <p>Your personalised, affordable path to health.</p>
       </header>
 

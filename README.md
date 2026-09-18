@@ -2,10 +2,18 @@
 
 > **An intelligent, constraint-based dietary optimizer that crafts delicious, cost-effective Indian meal plans tailored to your exact caloric & macronutrient targets — with zero digestive overload.**
 
+[![Render Backend](https://img.shields.io/badge/Render-Live%20Backend-46E3B7?logo=render&logoColor=white)](https://smart-nutrition-planner.onrender.com)
 [![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2B%20Express-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB%20%2F%20Fallback-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+## 🚀 Live Backend Deployment
+* **Live API URL**: [https://smart-nutrition-planner.onrender.com](https://smart-nutrition-planner.onrender.com)
+* **Health Check**: `https://smart-nutrition-planner.onrender.com/api/health`
+* **Plan Optimizer Endpoint**: `POST https://smart-nutrition-planner.onrender.com/api/plan`
 
 ---
 
@@ -67,7 +75,7 @@ No more unrealistic recommendations! The optimizer strictly enforces human-diges
 ## 🏗️ Project Architecture
 
 ```
-Nutrition_planner/
+Smart_Nutrition_Planner/
 ├── client/                     # Frontend React application (Vite)
 │   ├── src/
 │   │   ├── components/
@@ -143,7 +151,14 @@ Nutrition_planner/
    ```bash
    npm install
    ```
-3. Start the Vite development server:
+3. *(Optional)* Configure backend API URL in `client/.env`:
+   ```env
+   # Uses live Render backend by default:
+   VITE_BACKEND_URL=https://smart-nutrition-planner.onrender.com
+   # Or use your local backend:
+   # VITE_BACKEND_URL=http://localhost:5000
+   ```
+4. Start the Vite development server:
    ```bash
    npm run dev
    ```

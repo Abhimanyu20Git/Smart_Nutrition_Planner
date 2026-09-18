@@ -3,7 +3,7 @@ import PlanOptimizer from './components/PlanOptimizer';
 import ResultsDashboard from './components/ResultsDashboard';
 import Toast from './components/Toast';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://smart-nutrition-planner.onrender.com';
 
 export default function App() {
   const [toasts, setToasts] = useState([]);

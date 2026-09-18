@@ -53,6 +53,20 @@ function formatAmount(item, mode) {
 
 // Routes
 
+// Root Healthcheck & Welcome
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    app: 'Smart Nutrition Planner API',
+    version: '1.0.0',
+    documentation: 'https://github.com/Abhimanyu20Git/Smart_Nutrition_Planner'
+  });
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
 // 1. Generate plan
 app.post('/api/plan', async (req, res) => {
   try {

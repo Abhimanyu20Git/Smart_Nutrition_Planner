@@ -54,7 +54,7 @@ const JunkFoodFallback = {
 
 const JunkFoodWrapper = {
   find: async (query) => {
-    if (isMongoActive()) return await JunkFoodMongoose.find(query);
+    if (isMongoActive()) return await JunkFoodMongoose.find(query).lean();
     return await JunkFoodFallback.find();
   },
   countDocuments: async () => {

@@ -93,7 +93,7 @@ const FoodFallback = {
 
 const FoodWrapper = {
   find: async (query) => {
-    if (isMongoActive()) return await FoodMongoose.find(query);
+    if (isMongoActive()) return await FoodMongoose.find(query).lean();
     return await FoodFallback.find();
   },
   countDocuments: async () => {

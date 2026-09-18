@@ -113,12 +113,13 @@ async function getFoodsWithFallback() {
 
     // Combine local foods + unique external foods
     const combined = [...localFoods];
-    const existingNames = new Set(localFoods.map(f => f.name.toLowerCase()));
+    const existingNames = new Set(localFoods.map(f => (f.name || '').toLowerCase()).filter(Boolean));
 
     for (const ext of mappedExternal) {
-      if (!existingNames.has(ext.name.toLowerCase())) {
+      const extNameLower = (ext.name || '').toLowerCase();
+      if (extNameLower && !existingNames.has(extNameLower)) {
         combined.push(ext);
-        existingNames.add(ext.name.toLowerCase());
+        existingNames.add(extNameLower);
       }
     }
 

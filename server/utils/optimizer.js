@@ -59,7 +59,7 @@ function calculateTargets(weight, height, age, activityLevel, goal, gender = 'ma
 }
 
 function getMaxPortion(foodName) {
-  const name = foodName.toLowerCase();
+  const name = (foodName || '').toLowerCase();
   // Realistic, easily digestible daily portions:
   if (name.includes('soya')) return 35; // Max 35-40g soya chunks (prevents bloating/gas)
   if (name.includes('sattu')) return 40; // Max 40g sattu (1-2 refreshing glasses)
@@ -330,7 +330,7 @@ function optimizeMeals(foods, budget, targets, recoveryMode = false) {
   let dalCount = 0;
   for (const food of foodsPass1Protein) {
     if (currentPro >= targetPro) break;
-    const fName = food.name.toLowerCase();
+    const fName = (food.name || '').toLowerCase();
     const isDal = fName.includes('dal') || fName.includes('chana') || fName.includes('rajma') || fName.includes('lentil') || fName.includes('chickpea');
     if (isDal && dalCount >= 2 && !selectedFoods[food.name]) continue;
 

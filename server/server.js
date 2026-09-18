@@ -89,7 +89,9 @@ app.post('/api/plan', async (req, res) => {
       excludedFoods = []
     } = data;
 
-    const excludedLower = (excludedFoods || []).map(f => f.toLowerCase().trim());
+    const excludedLower = (excludedFoods || [])
+      .map(f => (typeof f === 'string' ? f : (f?.name || '')).toLowerCase().trim())
+      .filter(Boolean);
     
     let cheatCalories = parseInt(data.cheat_calories || 0, 10);
     if (isNaN(cheatCalories)) {
@@ -124,7 +126,7 @@ app.post('/api/plan', async (req, res) => {
     // Filter based on exclusions
     if (excludedLower.length > 0) {
       allFoods = allFoods.filter(f => {
-        const nameLower = f.name.toLowerCase();
+        const nameLower = (f.name || '').toLowerCase();
         const tagsList = (f.tags || '').split(',').map(t => t.trim().toLowerCase());
         
         return !excludedLower.some(ex => 

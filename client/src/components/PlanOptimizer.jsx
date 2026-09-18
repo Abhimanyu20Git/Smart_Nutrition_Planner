@@ -27,7 +27,11 @@ export default function PlanOptimizer({ onGenerate, isLoading }) {
   useEffect(() => {
     fetch(`${BACKEND_URL}/api/foods`)
       .then(res => res.json())
-      .then(data => setFoodNames(data))
+      .then(data => {
+        if (Array.isArray(data)) {
+          setFoodNames(data.filter(item => typeof item === 'string'));
+        }
+      })
       .catch(err => console.error('Failed to fetch autocomplete list:', err));
   }, []);
 
@@ -71,8 +75,9 @@ export default function PlanOptimizer({ onGenerate, isLoading }) {
     onGenerate(payload);
   };
 
-  const filteredAutocomplete = foodNames.filter(name =>
-    name.toLowerCase().includes(excludeInput.toLowerCase()) &&
+  const filteredAutocomplete = (Array.isArray(foodNames) ? foodNames : []).filter(name =>
+    typeof name === 'string' &&
+    name.toLowerCase().includes((excludeInput || '').toLowerCase()) &&
     !excludedFoods.includes(name)
   );
 

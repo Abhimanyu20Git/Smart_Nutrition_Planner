@@ -25,6 +25,14 @@ function getFoodCategory(name = '', tags = '') {
   return { label: 'Staple', icon: '🥗', color: '#34D399' };
 }
 
+// Clean amount display to maximum 2 digits after decimal point
+function cleanAmount(amountStr) {
+  if (!amountStr) return '';
+  return String(amountStr).replace(/(\d+\.\d{3,})/g, (match) => {
+    return parseFloat(parseFloat(match).toFixed(2));
+  });
+}
+
 export default function ResultsDashboard({ result, onBack }) {
   const [viewMode, setViewMode] = useState('meals'); // 'meals' or 'all'
 
@@ -494,7 +502,7 @@ export default function ResultsDashboard({ result, onBack }) {
                           borderRadius: '9999px',
                           letterSpacing: '0.02em'
                         }}>
-                          {item.amount}
+                          {cleanAmount(item.amount)}
                         </span>
                       </div>
                     );
@@ -574,7 +582,7 @@ export default function ResultsDashboard({ result, onBack }) {
                       padding: '5px 12px',
                       borderRadius: '9999px'
                     }}>
-                      {item.amount}
+                      {cleanAmount(item.amount)}
                     </span>
                   </div>
                 );

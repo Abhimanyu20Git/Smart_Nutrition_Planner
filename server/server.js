@@ -21,7 +21,8 @@ connectDB().then(() => {
 
 // Helper for formatting portion amounts
 function formatAmount(item, mode) {
-  const grams = item.amount_in_grams || 100;
+  const rawGrams = parseFloat(item.amount_in_grams || 100);
+  const grams = Number.isInteger(rawGrams) ? rawGrams : parseFloat(rawGrams.toFixed(2));
   const unitWeight = parseFloat(item.unit_weight || 100.0);
   const unitName = (item.unit_name || 'portion').trim();
   
@@ -29,7 +30,7 @@ function formatAmount(item, mode) {
   if (Number.isInteger(units)) {
     units = parseInt(units, 10);
   } else {
-    units = parseFloat(units.toFixed(1));
+    units = parseFloat(units.toFixed(2));
   }
 
   const countableUnits = ['piece', 'roti', 'fillet', 'cube', 'scoop', 'medium potato', 'banana', 'egg'];
@@ -173,13 +174,13 @@ app.post('/api/plan', async (req, res) => {
           items: optimizationResult.selected_foods.map(f => ({
             name: f.name,
             amount: formatAmount(f, measurementMode),
-            amount_in_grams: f.amount_in_grams,
-            calories: f.calories,
-            protein: f.protein,
-            carbs: f.carbs,
-            fats: f.fats,
-            fiber: f.fiber,
-            cost: f.cost,
+            amount_in_grams: parseFloat(parseFloat(f.amount_in_grams || 0).toFixed(2)),
+            calories: Math.round(f.calories || 0),
+            protein: parseFloat(parseFloat(f.protein || 0).toFixed(2)),
+            carbs: parseFloat(parseFloat(f.carbs || 0).toFixed(2)),
+            fats: parseFloat(parseFloat(f.fats || 0).toFixed(2)),
+            fiber: parseFloat(parseFloat(f.fiber || 0).toFixed(2)),
+            cost: parseFloat(parseFloat(f.cost || 0).toFixed(2)),
             tags: f.tags
           }))
         }
